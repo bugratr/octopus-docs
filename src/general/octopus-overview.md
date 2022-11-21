@@ -1,29 +1,30 @@
-## Octopus Network Overview
+## Octopus Ağı'na Genel Bakış
 
-Octopus Network is a brand new multichain network born to serve application-specific blockchains, aka Appchain. Octopus Network provides flexible and affordable leased security, out-of-box cross-chain interoperability, one-stop infrastructure, and a ready-to-be-engaged community for the appchains.
+Octopus Ağı, Appchain olarak da bilinen uygulamaya özel blok zincirlere hizmet etmek için doğmuş yepyeni bir çok zincirli ağdır. Ahtapot Ağı, uygulama zincirleri için esnek ve uygun fiyatlı kiralık güvenlik, kullanıma hazır çapraz zincir birlikte çalışabilirlik, tek noktadan altyapı ve bağlanmaya hazır bir topluluk sağlar.
 
-![Octopus Network Architecture](../images/general/Octopus_Architecture.png)
+![Octopus Ağı Altyapısı](../images/general/Octopus_Architecture.png)
 
-The full name of abbreviations in the architecture diagram:
+Mimari diyagramdaki kısaltmaların tam adı:
 
-| Abbreviations | Full Name  |
+| Kısaltmalar | Tam Ad |
 |------|------|
-| D | Delegator, delegate OCT to the validator for the staking |
-| S | Staking, maintain the secure of appchain |
-| V | Validator, stake OCT and run validator node for the staking |
-| RT | (Substrate) RunTime, the appchain application logic |
-| N | Node, the appchain full nodes | 
+| D | Delegator, OCT'yi staking için doğrulayıcıya devreder |
+| S | Stake etme, appchain güvenliğini sağlar |
+| V | Doğrulayıcı, hisse OCT ve hisse için doğrulayıcı düğümü çalıştırır |
+| RT | (Substrate) RunTime, uygulama zinciri uygulama mantığıdır |
+| N | Düğüm, uygulama zinciri tam düğümleri | 
 
-### Octopus Relay
+### Octopus Rölesi
 
-Octopus Relay is the core of the Octopus Network — a set of  [smart contracts](https://github.com/octopus-network/octopus-relay-contract) running on the NEAR blockchain, aka mainchain, that implements the security leasing market.
+Octopus Relay, menkul kıymet kiralama pazarını uygulayan NEAR blok zinciri, diğer adıyla ana zincir üzerinde çalışan bir dizi [akıllı sözleşme] (https://github.com/octopus-network/octopus-relay-contract) olan Ahtapot Ağı'nın çekirdeğidir.
+
 
 ### Appchain
 
-An Octopus Appchain is a Substrate-based blockchain that is made for a specific decentralized application. Once integrating the pallet [pallet-octopus-appchain](https://github.com/octopus-network/pallet-octopus-appchain), the Appchain will be geared up to anchor off the Octopus Network.
+Bir Octopus Appchain, belirli bir merkezi olmayan uygulama için yapılmış, Substrat tabanlı bir blok zinciridir. [pallet-octopus-appchain](https://github.com/octopus-network/pallet-octopus-appchain) paletini entegre ettikten sonra, Appchain Ahtapot Ağı'na sabitlenecek şekilde donatılacaktır.
 
-### Validator
+### Doğrulayıcı
 
-In the Octopus Network, OCT holders can stake OCTs to become validators or delegators. Validators secure Appchains by staking OCT and [running the validator nodes](../maintain/validator-guide.md) of the Appchain. Delegators secure Appchains by delegating the OCT they stake to honest validators.
+Ahtapot Ağında, OCT sahipleri onaylayıcı veya yetki veren olmak için OCT'leri stake edebilir. Doğrulayıcılar, OCT'yi stake ederek ve Appchain'in [doğrulayıcı düğümlerini çalıştırarak](../maintain/validator-guide.md) Appchain'leri güvence altına alır. Yetki verenler, stake ettikleri OCT'yi dürüst doğrulayıcılara devrederek Appchains'in güvenliğini sağlar.
 
-The validators are rewarded with the native token of the corresponding Appchains by validating transactions and blocks. If a validator misbehaves (e.g. be offline, attacks the network, or runs malware) in the network, the staked OCT of both the validator and its delegators will be slashed proportionally.
+Doğrulayıcılar, işlemleri ve blokları doğrulayarak karşılık gelen Uygulama Zincirlerinin yerel belirteci ile ödüllendirilir. Bir doğrulayıcı ağda yanlış davranırsa (örn. çevrimdışı olmak, ağa saldırmak veya kötü amaçlı yazılım çalıştırmak), hem doğrulayıcının hem de yetki verenlerin hisseli OCT'si orantılı olarak kesilir.
