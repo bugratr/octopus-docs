@@ -1,7 +1,7 @@
-## Frequently Asked Questions (FAQs)
+## Sıkça Sorulan Sorular (SSS)
 
-*This FAQ focuses on technical questions for users interested in developing Octopus Appchain. If you have more general questions, please search for the answers in our [Octopus Network FAQ](https://oct.network/#faqs). Furthermore, feel free to ask questions on [Octopus Discord](https://discord.gg/6GTJBkZA9Q).*
+*Bu SSS, Octopus Appchain'i geliştirmekle ilgilenen kullanıcılar için teknik sorulara odaklanmaktadır. Daha genel sorularınız varsa, lütfen yanıtları [Octopus Network SSS](https://oct.network/#faqs) bölümümüzde arayın. Ayrıca, [Octopus Discord](https://discord.gg/6GTJBkZA9Q) hakkında soru sormaktan çekinmeyin.*
 
-**Does the Octopus Network have Collators like Polkadot?**
+**Octopus Ağında Polkadot gibi Düzenleyiciler var mı?**
 
-No. The collators in Polkadot maintain parachain by collecting parachain transactions and producing state transition proofs for relaychain/Polkadot validators. In Octopus Network, each appchain is an **independent** blockchain, there are validator nodes of the appchain in the Octopus network, which collect and verify the transactions of the appchain. These validator nodes are run by OCT holders who stake OCTs to provide security for the appchain.
+Hayır. Polkadot'taki harmanlayıcılar, parachain işlemlerini toplayarak ve geçiş zinciri/Polkadot doğrulayıcıları için durum geçiş kanıtları üreterek parachain'i sürdürür. Ahtapot Ağında, her bir uygulama zinciri **bağımsız** bir blok zinciridir, Ahtapot ağında, uygulama zincirinin işlemlerini toplayan ve doğrulayan uygulama zincirinin doğrulayıcı düğümleri vardır. Bu doğrulayıcı düğümler, uygulama zinciri için güvenlik sağlamak üzere OCT'leri stake eden OCT sahipleri tarafından çalıştırılır.
