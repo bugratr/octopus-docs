@@ -1,19 +1,19 @@
-## Octopus Network Infrastructure
+## Octopus Ağ Altyapısı
 
-Octopus Network provides infrastructure supports for appchains within the ecosystem, including testnet, RPC gateway, indexer, block explorer, cross-chain bridge, and more.
+Octopus Network, ekosistemdeki uygulama zincirleri için testnet, RPC ağ geçidi, indeksleyici, blok gezgini, zincirler arası köprü ve daha fazlasını içeren altyapı desteği sağlar.
 
 ### Testnet
 
-Appchain team can [apply](../guides/appchain-register.md) and launch the testnet to learn the [onboarding process](../guides/appchain-startup.md) and do the functionality testing before the mainnet launch.
+Appchain ekibi [uygulayabilir](../guides/appchain-register.md) ve [yerleştirme sürecini](../guides/appchain-startup.md) öğrenmek için test ağını başlatabilir ve ana ağ lansmanından önce işlevsellik testini yapabilir .
 
-### RPC Gateway and Indexer
+### RPC Ağ Geçidi ve Dizin Oluşturucu
 
-Appchain team can use RPC gateway and [Indexer](../guides/appchain-indexer.md) to speed up and simplify the development of the front-end applications.
+Appchain ekibi, ön uç uygulamalarının geliştirilmesini hızlandırmak ve basitleştirmek için RPC ağ geçidini ve [Indexer](../guides/appchain-indexer.md) kullanabilir.
 
-### Block Explorer
+### Blok Gezgini
 
-The users of the appchain can query the details of the transactions through the block explorer.
+Appchain kullanıcıları, işlemlerin ayrıntılarını blok gezgini aracılığıyla sorgulayabilir.
 
 ### Cross-chain Bridge
 
-The cross-chain bridge of the Octopus Network is a two-direction cross-chain bridge between the appchain and the NEAR network, through which the appchain team can [transfer assets](../guides/assets-cross-chain.md) on the two networks. At the same time, before the launch of the mainnet of the appchain, the appchain team can also [transfer some native tokens](../guides/assets-cross-chain.md) through the cross-chain bridge for the IDO.
+Octopus Network'ün zincirler arası köprüsü, appchain ekibinin [varlıkları transfer edebileceği](../guides/assets-cross-chain.md) aracılığıyla, appchain ve NEAR ağı arasında iki yönlü bir çapraz zincir köprüsüdür. iki ağ üzerinde. Aynı zamanda, uygulama zincirinin ana ağının başlatılmasından önce, uygulama zinciri ekibi IDO için zincirler arası köprü aracılığıyla [bazı yerel belirteçleri](../guides/assets-cross-chain.md) aktarabilir.
