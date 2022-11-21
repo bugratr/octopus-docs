@@ -1,60 +1,60 @@
-## Octopus Network Staking
+## Octopus Ağı Stake Etme
 
-The LPoS (Leased Proof-of-Stake) of Octopus Network is to select a group of network maintainers from the OCT holders participating in the staking. The validator with the normal operation will get the rewards, but if it was unable to perform its duties normally, the staked assets will get slashed.
+Octopus Network'ün LPoS'u (Kiralanmış Hisse Kanıtı), bahise katılan OCT sahiplerinden bir grup ağ bakımcısı seçmektir. Normal operasyona sahip doğrulayıcı ödülleri alacak, ancak görevlerini normal şekilde yerine getiremezse, stake edilen varlıklar kesilecek.
 
-In staking, there are two roles: validator and delegator. OCT holders can participate in the staking to become:
+Stake etmede iki rol vardır: doğrulayıcı ve yetki veren. OCT sahipleri stakinge katılarak:
 
-* Validator
-    - Choose appchain and stake 5,000 OCT as least;
-    - Run the validator node, ensure its availability is as high as possible
-    - The unbond period is 21 days;
-* Delegator
-    - Delegate the OCT to the validator, no other operations are required;
-    - The unbond period is 21 days;
+* Doğrulayıcı
+     - Appchain'i seçin ve en az 5.000 OCT stake edin;
+     - Doğrulayıcı düğümü çalıştırın, kullanılabilirliğinin mümkün olduğunca yüksek olduğundan emin olun
+     - Serbest kalma süresi 21 gündür;
+* Yetkilendiren
+     - OCT'yi doğrulayıcıya devredin, başka hiçbir işlem gerekmez;
+     - Serbest kalma süresi 21 gündür;
 
-### Rewards
+### Ödüller
 
-#### Reward Distribution
+#### Ödül Dağıtımı
 
-In LPoS, rewards are calculated based on the bias of block generation and recorded per era (approximately 24 hours). If the bias of block generation of a validator reaches the expected 80% in an era, there will be the full reward of this era.
+LPoS'ta ödüller, blok oluşturma eğilimine göre hesaplanır ve dönem başına (yaklaşık 24 saat) kaydedilir. Bir doğrulayıcının blok oluşturma yanlılığı bir çağda beklenen %80'e ulaşırsa, bu çağın tam ödülü olacaktır.
 
-Assuming a block is generated every 6 seconds, there will be 14,400 blocks in a day. If there are 100 validators, then one validator is expected to generate 144 blocks. As long as the number of blocks it generates in this era is higher than 144 * 80%, it will get the full reward, otherwise, there will be no reward.
+Her 6 saniyede bir blok üretildiğini varsayarsak, günde 14.400 blok olacaktır. 100 doğrulayıcı varsa, bir doğrulayıcının 144 blok oluşturması beklenir. Bu çağda ürettiği blok sayısı 144*%80'den fazla olduğu sürece ödülün tamamını alır, aksi halde ödül olmaz.
 
-Also, rewards are distributed based on the staking amount of the validator node, which means that the higher the stake amount, the higher the reward the validator node will receive when they’re 100% available when forming the consensus. For the staking reward of the validator node, the validator gets 20% as a commission fee, and then the remaining staking rewards are distributed between the validator and the delegator in proportion to the staking amount.
+Ayrıca ödüller, doğrulayıcı düğümün staking miktarına göre dağıtılır; bu, pay miktarı ne kadar yüksekse, mutabakatı oluştururken %100 kullanılabilir olduklarında doğrulayıcı düğümün alacağı ödülün o kadar yüksek olacağı anlamına gelir. Doğrulayıcı düğümün staking ödülü için, doğrulayıcı komisyon ücreti olarak %20 alır ve ardından kalan staking ödülleri, doğrulayıcı ve yetki veren arasında staking miktarıyla orantılı olarak dağıtılır.
 
-We assume that: a validator node, the validator stake 10,000 OCT, the delegator A, B, and C respectively stake 3,000 OCT, 5,000 OCT, and 2,000 OCT, and the staking reward of the validator node is 100 XYZ, then the reward distribution is shown in the following table:
+Bir doğrulayıcı düğümün, doğrulayıcının 10.000 OCT hissesini, yetki veren A, B ve C'nin sırasıyla 3.000 OCT, 5.000 OCT ve 2.000 OCT'nin hissesini ve doğrulayıcı düğümün staking ödülünün 100 XYZ olduğunu, ardından ödül dağılımının olduğunu varsayıyoruz. aşağıdaki tabloda gösterilmiştir:
 
-|             | Staked (OCT) | Rewards (XYZ) |
+|             | Staked (OCT) | Ödüller (XYZ) |
 | ----------- | ------------ | ------------- |
-| Validator 0 | 10000        | 60            |
-| Delegator A | 3000         | 12            |
-| Delegator B | 5000         | 20            |
-| Delegator C | 2000         | 8             |
+| Doğrulayıcı 0 | 10000        | 60            |
+| Yetkili A | 3000         | 12            |
+| Yetkili B | 5000         | 20            |
+| Yetkili C | 2000         | 8             |
 
-#### Claim rewards
+#### Ödülleri topla
 
-The validator or delegator needs to manually claim the rewards via Octopus App. The staking reward keeps up to 84 Era, which is approximately 84 days.
+Doğrulayıcı veya yetki verenin, ödülleri Ahtapot Uygulaması aracılığıyla manuel olarak talep etmesi gerekir. Staking ödülü, yaklaşık 84 gün olan 84 Era'ya kadar devam eder.
 
-**Warning**: If the validator or delegator does not claim his staking reward within the period, currently, the reward is locked in the contract, and can’t be claimed.
+**Uyarı**: Onaylayan veya yetkilendiren, staking ödülünü dönem içinde talep etmezse, ödül sözleşmede kilitlenir ve talep edilemez.
 
-### Auto-unbond
+### Otomatik unbond yapma
 
-In LPoS, if the validator does not generate blocks normally within 3 consecutive reward cycles (about 3 days), it will be removed from the validator set. But the existing rewards still can be claimed, and the staked OCTs would be withdrawable after the unbond period.
+LPoS'ta, doğrulayıcı, birbirini izleyen 3 ödül döngüsünde (yaklaşık 3 gün) normal olarak blok oluşturmazsa, doğrulayıcı setinden kaldırılacaktır. Ancak mevcut ödüller hala talep edilebilir ve stake edilmiş OCT'ler, bağlanmama döneminden sonra geri çekilebilir.
 
-### Slashing
+### Kesme
 
-In LPoS, if the validator node misbehaves in the network, both the validator and their delegators will be slashed, thus losing a certain percentage of the stake OCT.
+LPoS'ta, doğrulayıcı düğüm ağda yanlış davranırsa, hem doğrulayıcı hem de delegeleri kesilerek OCT hissesinin belirli bir yüzdesini kaybeder.
 
-To understand which case would be slashed , see the condition in the below.
+Hangi büyük/küçük harfin kesileceğini anlamak için aşağıdaki koşula bakın.
 
-* Condition 1: A group of validators signs more than one block at the same height;
-* Condition 2: A group of validators signs a block which includes at least one invalid tx;
-* Condition 3: A group of validators can’t react to a data availability challenge with a valid block which can justify a block header they have signed;
+* Koşul 1: Bir grup onaylayıcı, aynı yükseklikte birden fazla bloğu imzalar;
+* Koşul 2: Doğrulayıcılardan oluşan bir grup, en az bir geçersiz tx içeren bir bloğu imzalar;
+* Koşul 3: Bir grup doğrulayıcı, imzaladıkları bir blok başlığını haklı çıkarabilecek geçerli bir blokla veri kullanılabilirliği sorgulamasına tepki veremez;
 
-In condition 1, below formula will be used for calculating the slashing rate:
-Let x = offenders’ total staking, n = all validators’ total staking
-Slashing Rate = Min((3 * x/n)^2, 1)
+Koşul 1'de, kesme oranını hesaplamak için aşağıdaki formül kullanılacaktır:
+x = suçluların toplam stake'i, n = tüm doğrulayıcıların toplam stake'i olsun
+Kesme Hızı = Min((3 * x/n)^2, 1)
 
-In conditions 2 and 3, the offenders will be slashed by 100%.
+2. ve 3. koşullarda, suçlular %100 oranında kesilecektir.
 
-These slashed OCTs will be sent to a public treasury, from where could be returned to the validators on the decision of governance, e.g. slashing is caused by appchain runtime errors.
+Bu kesik OCT'ler, yönetişim kararında doğrulayıcılara iade edilebilecekleri bir kamu hazinesine gönderilecek, örn. eğik çizgi, uygulama zinciri çalışma zamanı hatalarından kaynaklanır.
