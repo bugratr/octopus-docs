@@ -1,50 +1,50 @@
-## Appchain Development
+## Appchain Geliştirme
 
-In this tutorial, we will:
+Bu eğitimde şunları yapacağız:
 
-1. Setup the development environment;
-2. Implement appchain runtime;
-3. Start the local testnet;
+1. Geliştirme ortamını kurun;
+2. Uygulama zinciri çalışma zamanını uygulayın;
+3. Yerel test ağını başlatın;
 
-### Setup the Development Environment
+### Geliştirme Ortamını Kurun
 
-It's suggested to start an Appchain node based on [Barnacle](https://github.com/octopus-network/barnacle) which is a template developed by the Octopus Network team. Originating from the [Substrate node template](https://github.com/substrate-developer-hub/substrate-node-template), Barnacle is a minimal working Appchain node template for developers quickly start their Octopus Appchain project. The frontend of an Appchain can be developed based on the [Front-end template](https://github.com/substrate-developer-hub/substrate-front-end-template).
+Octopus Network ekibi tarafından geliştirilen bir şablon olan [Barnacle](https://github.com/octopus-network/barnacle) tabanlı bir Appchain düğümü başlatmanız önerilir. [Substrate düğüm şablonundan](https://github.com/substrate-developer-hub/substrate-node-template) alınan Barnacle, geliştiricilerin Octopus Appchain projelerini hızla başlatmaları için minimal çalışan bir Appchain düğüm şablonudur. Bir Appchain'in ön ucu, [Ön uç şablonu](https://github.com/substrate-developer-hub/substrate-front-end-template) temel alınarak geliştirilebilir.
 
-Note: Substrate development is easiest on Unix-based operating systems like macOS or Linux, and for Windows user, it is highly recommended to use Windows Subsystem Linux (WSL) and follow the instructions for Ubuntu/Debian.
+Not: Substrat geliştirme, macOS veya Linux gibi Unix tabanlı işletim sistemlerinde en kolay olanıdır ve Windows kullanıcıları için Windows Subsystem Linux (WSL) kullanmaları ve Ubuntu/Debian yönergelerini izlemeleri önemle tavsiye edilir.
 
-For most users, you can execute the following commands to install the environment.
+Çoğu kullanıcı için, ortamı yüklemek için aşağıdaki komutları yürütebilirsiniz.
 
 `curl https://getsubstrate.io/ -sSf | bash -s - --fast`
 
-For more information, please refer to the [Installation Guide](https://substrate.dev/docs/en/knowledgebase/getting-started/) in the Substrate Developer Center.
+Daha fazla bilgi için lütfen Substrate Developer Center'daki [Kurulum Kılavuzuna](https://substrate.dev/docs/en/knowledgebase/getting-started/) bakın.
 
 ### Barnacle
 
-Appchain node template Barnacle, it is based on the Substrate node template and integrates a series of [octopus-pallets](https://github.com/octopus-network/octopus-pallets) which were implemented by the Octopus network team, including:
+Appchain düğüm şablonu Barnacle, Substrate düğüm şablonunu temel alır ve Octopus ağ ekibi tarafından uygulanan bir dizi [octopus-pallets](https://github.com/octopus-network/octopus-pallets) entegre eder. :
 
 * Appchain, [pallet-octopus-appchain](https://github.com/octopus-network/octopus-pallets/tree/main/appchain)
-    - Metadata of an appchain. Including appchain identifier, RPC endpoint of mainchain, etc.
-    - Validators of the appchain will observe the mainchain and submit the observed events using OCW for consensus.
+    - Bir uygulama zincirinin meta verileri. Uygulama zinciri tanımlayıcısı, ana zincirin RPC uç noktası vb. dahil.
+    - Uygulama zincirinin doğrulayıcıları, ana zinciri gözlemleyecek ve fikir birliği için OCW'yi kullanarak gözlemlenen olayları sunacaktır.
 
-* LPoS, [pallet-octopus-lpos](https://github.com/octopus-network/octopus-pallets/tree/main/lpos)
-    - An implementation of Octopus Network's LPoS.
-    - This pallet depends on pallet-octopus-appchain.
+* LPoS, [palet-ahtapot-lpos](https://github.com/octopus-network/octopus-pallets/tree/main/lpos)
+    - Octopus Network'ün LPoS'sinin bir uygulaması.
+    - Bu palet, palet-ahtapot-uygulama zincirine bağlıdır.
 
-* Common, [pallet-octopus-support](https://github.com/octopus-network/octopus-pallets/tree/main/support)
-    - Some common traits and types.
+* Ortak, [pallet-octopus-support](https://github.com/octopus-network/octopus-pallets/tree/main/support)
+    - Bazı ortak özellikler ve türler.
 
-* Cross-chain messages, [pallet-octopus-upward-messages](https://github.com/octopus-network/octopus-pallets/tree/main/upward-messages)
-    - This pallet manages the cross-chain messages sent from appchain to mainchain.
-
+* Zincirler arası mesajlar, [pallet-octopus-upward-messages](https://github.com/octopus-network/octopus-pallets/tree/main/upward-messages)
+    - Bu palet, uygulama zincirinden ana zincire gönderilen zincirler arası mesajları yönetir.
+    
 ```yaml
 git clone --depth 1 https://github.com/octopus-network/barnacle.git
 cd barnacle
 cargo build
 ```
 
-Based on Barnacle, the appchain team only needs to focus on the pallets development of business function, and then they would integrated easily appchain into the Octopus network.
+Barnacle'a dayalı olarak, uygulama zinciri ekibinin yalnızca iş işlevinin palet geliştirmeye odaklanması yeterlidir ve ardından uygulama zincirini Ahtapot ağına kolayca entegre edebilirler.
 
-### Front-end template
+### Ön uç şablonu
 
 ```yaml
 # Install Node.js
@@ -59,32 +59,32 @@ cd substrate-front-end-template
 yarn install
 ```
 
-> **Note**
+> **Not**
 >
-> If there is a newer version of `substrate-front-end-template`, It is recommended to replace `v3.0.0+monthly-2021-08` with it in the above command.
+> "substrate-front-end-template"in daha yeni bir sürümü varsa, yukarıdaki komutta "v3.0.0+aylık-2021-08" öğesinin bununla değiştirilmesi önerilir.
 
-### Implement appchain runtime
+### Uygulama zinciri çalışma zamanını uygulama
 
-Steps to implement an application specific pallets:
+Uygulamaya özel paletleri uygulama adımları:
 
-1. Add a `pallet`, and implement application specific logic in `pallets/<pallet-name>/src/lib.rs`;
-2. Add the `pallet` into `runtime/Cargo.toml`, `runtime/src/lib.rs`;
-3. Add the `runtime` into `node/Cargo.toml`, install it in the node.
+1. Bir "palet" ekleyin ve "pallets/<pallet-name>/src/lib.rs" içinde uygulamaya özel mantık uygulayın;
+2. "palet"i "runtime/Cargo.toml", "runtime/src/lib.rs" içine ekleyin;
+3. "çalışma zamanı"nı "node/Cargo.toml" içine ekleyin, düğüme kurun.
 
-**Note**: Currently, please set the value of `MILLISECS_PER_BLOCK` with 6000. 
+**Not**: Şu anda lütfen `MILLISECS_PER_BLOCK` değerini 6000 olarak ayarlayın.
 
-For more information, please refer to the [Add Pallet to Runtime Guide](https://substrate.dev/docs/en/tutorials/add-a-pallet/) in the Substrate Developer Center.
+Daha fazla bilgi için lütfen Substrate Developer Center'daki [Çalışma Zamanına Palet Ekleme Kılavuzuna](https://substrate.dev/docs/en/tutorials/add-a-pallet/) bakın.
 
-#### Appchain configuration
+#### Appchain konfigürasyon
 
-The configuration of the appchain is mainly in the ChainSpec file. Need to configure:
+Appchain yapılandırması esas olarak ChainSpec dosyasındadır. Yapılandırmanız gerekenler:
 
-* Appchain pallet
-    - Anchor contract;
-    - Validator collection;
-    - The number of tokens pre-mined on the NEAR network;
+* Appchain paleti
+     - Çapa sözleşmesi;
+     - Doğrulayıcı koleksiyonu;
+     - NEAR ağında önceden kazılmış jeton sayısı;
 
-The Barnacle example is as follows:
+Barnacle örneği aşağıdaki gibidir:
 
 ```Rust
 "octopusAppchain": {
@@ -117,11 +117,11 @@ The Barnacle example is as follows:
 },
 ```
 
-* LPoS pallet
-    - The historical cycle of LPoS rewards;
-    - Rewards for each Era;
+* LPoS paleti
+     - LPoS ödüllerinin tarihsel döngüsü;
+     - Her Çağ için Ödüller;
 
-The Barnacle example is as follows:
+Barnacle örneği aşağıdaki gibidir:
 
 ```Rust
 "octopusLpos": {
@@ -130,9 +130,9 @@ The Barnacle example is as follows:
 },
 ```
 
-### Start the Local Testnet
+### Yerel Testnet'i başlatın
 
-Execute the following command to compile and start the local blockchain node:
+Yerel blockchain düğümünü derlemek ve başlatmak için aşağıdaki komutu yürütün:
 
 ```yaml
 cargo build
@@ -140,13 +140,13 @@ cargo build
 ./target/debug/appchain-barnacle --dev --tmp
 ```
 
-If you want to run a local front-end to interact with local nodes, you can refer to [Run Local Front End](https://substrate.dev/docs/en/tutorials/create-your-first-substrate-chain/interact#start-the-front-end-template).
+Yerel düğümlerle etkileşim kurmak için yerel bir ön uç çalıştırmak istiyorsanız [Yerel Ön Uç Çalıştır](https://substrate.dev/docs/en/tutorials/create-your-first-substrate-chain)'e başvurabilirsiniz. /interact#start-the-front-end-şablonu).
 
-### Publish the Appchain Release
-
-Once finishing the Appchain development, and the integration of the Octopus Pallets, the Appchain team needs to publish a release of the Appchain.
-
-> **Note**
+### Appchain Sürümünü Yayınlayın
+    
+Appchain geliştirmesini ve Ahtapot Paletlerinin entegrasyonunu tamamladıktan sonra, Appchain ekibinin Appchain'in bir sürümünü yayınlaması gerekir.
+    
+> **Not**
 >
-> * The Chain Spec file could be placed under one folder of source code. E.g:[resources](https://github.com/octopus-network/barnacle/tree/master/resources)
-> * For the integration, please refer to the [Barnacle](https://github.com/octopus-network/barnacle)
+> * Chain Spec dosyası, kaynak kodun bir klasörünün altına yerleştirilebilir. E.g:[resources](https://github.com/octopus-network/barnacle/tree/master/resources)
+> * Entegrasyon için lütfen [Barnacle]'a bakın.(https://github.com/octopus-network/barnacle)
